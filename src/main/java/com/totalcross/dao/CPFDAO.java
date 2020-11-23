@@ -30,9 +30,9 @@ public class CPFDAO {
 		return success;
 	}
 
-	public void updateCPF(String cpf_novo, String cpf_old) throws SQLException {
+	public void updateCPF(String cpf_new, String cpf_old) throws SQLException {
 		Connection dbcon = DatabaseManager.getConnection();
-		String sql = "UPDATE person SET cpf = " + cpf_old + " WHERE cpf = " + cpf_novo;
+		String sql = "UPDATE person SET cpf = " + cpf_old + " WHERE cpf = " + cpf_new;
 		PreparedStatement ps = dbcon.prepareStatement(sql);
 		ps.executeUpdate();
 	}

@@ -3,7 +3,7 @@ package com.totalcross;
 import totalcross.ui.MainWindow;
 import totalcross.ui.Label;
 
-import com.totalcross.ui.Inicial;
+import com.totalcross.ui.Initial;
 
 import totalcross.sys.Settings;
 public class HelloTC extends MainWindow {
@@ -15,6 +15,6 @@ public class HelloTC extends MainWindow {
     @Override
     public void initUI() {
        
-        swap(new Inicial());
+        swap(new Initial());
     }
 }

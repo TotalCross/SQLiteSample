@@ -19,8 +19,8 @@ public class Update extends Container {
     }
  
     public void initUI() {
-        cpfLabel = new Label("CPF atual:");
-        cpfLabel1 = new Label("Novo CPF:");
+        cpfLabel = new Label("Current CPF:");
+        cpfLabel1 = new Label("New CPF:");
  
         maskedEdit = new Edit("999.999.999-99");
         maskedEdit.caption = "";
@@ -34,14 +34,14 @@ public class Update extends Container {
         maskedEditCPF.setValidChars(Edit.numbersSet);
         maskedEditCPF.transparentBackground = true;
  
-        btnupdate = new Button("Atualizar", Button.BORDER_OUTLINED);
+        btnupdate = new Button("Update", Button.BORDER_OUTLINED);
         btnupdate.setBackForeColors(Color.BLACK, Color.WHITE);
  
         add(cpfLabel, LEFT + 100, TOP + 50, PREFERRED, Update.PREFERRED);
-        add(maskedEdit, SAME, AFTER + 50, PREFERRED, Inicial.PREFERRED);
+        add(maskedEdit, SAME, AFTER + 50, PREFERRED, Initial.PREFERRED);
  
         add(cpfLabel1, LEFT + 100, AFTER + 50, PREFERRED, Update.PREFERRED);
-        add(maskedEditCPF, SAME, AFTER + 50, PREFERRED, Inicial.PREFERRED);
+        add(maskedEditCPF, SAME, AFTER + 50, PREFERRED, Initial.PREFERRED);
  
         add(btnupdate, LEFT, AFTER + 100, FILL, PREFERRED);
         btnupdate.addPressListener((event) -> {
@@ -56,7 +56,7 @@ public class Update extends Container {
  
     private void updateCPF() throws java.sql.SQLException {
         if (maskedEdit.getTextWithoutMask() == "" || maskedEditCPF.getTextWithoutMask() == "") {
-            MessageBox mb = new MessageBox("Atenção!", "Preencha Todos os Campos");
+            MessageBox mb = new MessageBox("Attention!", "Fill all the fields");
             mb.setBackForeColors(Color.WHITE, Color.BLACK);
             mb.popup();
  
@@ -66,7 +66,7 @@ public class Update extends Container {
             String cpf_novo = maskedEditCPF.getTextWithoutMask();
             new CPFDAO().updateCPF(cpf_antigo, cpf_novo);
  
-            MessageBox mb = new MessageBox("Atenção!", "CPF:" + cpf_antigo + " foi atualizado para: " + cpf_novo);
+            MessageBox mb = new MessageBox("Attention!", "CPF:" + cpf_antigo + " Was updated: " + cpf_novo);
             mb.setBackForeColors(Color.WHITE, Color.BLACK);
             mb.popup();
         }
